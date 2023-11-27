@@ -11,7 +11,7 @@ class User(AbstractUser):
     street_address = models.CharField(max_length=255, blank=True)
     district = models.CharField(max_length=255, blank=True)
     division = models.CharField(max_length=255, blank=True)
-    image = models.ImageField(null=True, max_length=100000, default='', blank=True)
+    image = models.ImageField(null=True, max_length=65535, default='', blank=True)
 
     REQUIRED_FIELDS = ['email', 'first_name', 'last_name', 'phone_number', 'street_address', 'district', 'division', 'is_staff', 'image']
 
