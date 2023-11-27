@@ -105,7 +105,7 @@ WSGI_APPLICATION = 'global_computer.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': os.environ.get('NAME'),
         'USER': os.environ.get('USER'),
         'PASSWORD': os.environ.get('PASSWORD'),
