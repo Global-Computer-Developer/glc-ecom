@@ -1,3 +1,1 @@
-# glc-ecom 2
-asdf
-asdf
+# Global Computer e-commerce
