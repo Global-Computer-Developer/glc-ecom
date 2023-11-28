@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-wpx$@io&-dzyks&m=z%&uc=4b!qn*@6no$(^a(!qivf2jypr#z
 DEBUG = True
 
 
-### ------ DJANGO APP SECURITY -------##
+### ------ DJANGO APP SECURITY -------###
 # Cross-site Scripting for deploy
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
