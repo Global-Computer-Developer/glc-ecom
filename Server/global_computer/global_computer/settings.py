@@ -28,7 +28,29 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-wpx$@io&-dzyks&m=z%&uc=4b!qn*@6no$(^a(!qivf2jypr#z'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+
+
+### ------ DJANGO APP SECURITY -------##
+# Cross-site Scripting for deploy
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
+# SSL redirect
+SECURE_SSL_REDIRECT = True
+
+# HTTP Strict Transport Security
+SECURE_HSTS_SECONDS = 86400
+SECURE_HSTS_PRELOAD = True
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+
+#  Cross-site request forgery (CSRF) protection
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
+### ------ END DJANGO APP SECURITY -------##
+
+
 
 ALLOWED_HOSTS = ['127.0.0.1','localhost', '134.209.97.214']
 
