@@ -33,17 +33,20 @@ DEBUG = True
 
 ### ------ DJANGO APP SECURITY -------###
 # Cross-site Scripting for deploy
-SECURE_BROWSER_XSS_FILTER = True
-SECURE_CONTENT_TYPE_NOSNIFF = True
+# SECURE_BROWSER_XSS_FILTER = True
+# SECURE_CONTENT_TYPE_NOSNIFF = True
 
-# HTTP Strict Transport Security
-SECURE_HSTS_SECONDS = 86400
-SECURE_HSTS_PRELOAD = True
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+# # SSL redirect
+# SECURE_SSL_REDIRECT = True
 
-#  Cross-site request forgery (CSRF) protection
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+# # HTTP Strict Transport Security
+# SECURE_HSTS_SECONDS = 86400
+# SECURE_HSTS_PRELOAD = True
+# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+
+# #  Cross-site request forgery (CSRF) protection
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
 
 ## ------ END DJANGO APP SECURITY -------##
 
