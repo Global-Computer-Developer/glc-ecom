@@ -4,3 +4,4 @@ media
 env
 *.env.*
 staticfiles_build
+account
