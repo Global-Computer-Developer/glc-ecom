@@ -4,7 +4,3 @@ media
 env
 *.env.*
 staticfiles_build
-account/migrations/*
-account/__pycache__/*
-global_computer_api/__pycache__/*
-global_computer_api/migrations/*
