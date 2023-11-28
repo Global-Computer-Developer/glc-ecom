@@ -4,3 +4,5 @@ media
 env
 *.env.*
 staticfiles_build
+acount/migrations
+global_computer_api/migrations
