@@ -26,6 +26,11 @@ jobs:
           pip install mysqlclient
           python3 manage.py makemigrations
           python3 manage.py migrate
-          
+        env: 
+          NAME: "global_ecom"
+          USER: "jahidul"
+          PASSWORD: "J@hidul42598475"
+          HOST: "localhost"
+          PORT: "3306"
           
 
