@@ -3,6 +3,7 @@
 media
 env
 *.env.*
+*.sock
 staticfiles_build
 account/migrations
 global_computer_api/migrations
