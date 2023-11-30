@@ -28,10 +28,10 @@ jobs:
           python3 manage.py migrate
           python3 manage.py collectstatic
         env: 
-          NAME: "global_ecom"
-          USER: "jahidul"
-          PASSWORD: "J@hidul42598475"
-          HOST: "localhost"
-          PORT: "3306"
+          NAME: ${{ vars.NAME }}
+          USER: ${{ vars.USER }}
+          PASSWORD: ${{ vars.PASSWORD }}
+          HOST: ${{ vars.HOST }}
+          PORT: ${{ vars.PORT }}
           
 
