@@ -27,6 +27,8 @@ jobs:
           python3 manage.py makemigrations
           python3 manage.py migrate
           python3 manage.py collectstatic
+          sudo service nginx restart
+          sudo service gunicorn restart
         env: 
           NAME: ${{ vars.NAME }}
           USER: ${{ vars.USER }}
