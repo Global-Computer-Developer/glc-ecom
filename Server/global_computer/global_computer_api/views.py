@@ -1,10 +1,10 @@
 from typing import Any
 from django.shortcuts import render
-from .models import Newsteller, Category, Banner, Product, Slider, Order, OrderItem, Brand, KeyFeature, SpecTable, Specification, Reviews, SideMenu, ProductImage
+from .models import Newsteller, Category, Banner, Product, Slider, Order, OrderItem, Brand, KeyFeature, SpecTable, Specification, Reviews, SideMenu, SubSideMenu, ProductImage
 from django.contrib.auth import  get_user_model
 from rest_framework import generics
 from rest_framework.permissions import IsAdminUser, IsAuthenticated
-from .serializers import UserProfileSerializer, SingleOrderSerializer, NewstellerSerializer, ReviewSerializer, CategorySerializer, BrandSerializer, BannerSerializer, ProductSerializer, KeyFeatureSerializer, SliderSerializer, OrderItemSerializer, OrderSerializer, SpecificationSerializer, SpecTableSerializer, SingleProductSerializer, ReviewSerializer, SideMenuSerializer, SingleProductImageSerializer
+from .serializers import SubSideMenuSerializer, UserProfileSerializer, SingleOrderSerializer, NewstellerSerializer, ReviewSerializer, CategorySerializer, BrandSerializer, BannerSerializer, ProductSerializer, KeyFeatureSerializer, SliderSerializer, OrderItemSerializer, OrderSerializer, SpecificationSerializer, SpecTableSerializer, SingleProductSerializer, ReviewSerializer, SideMenuSerializer, SingleProductImageSerializer
 from .permissions import IsManagerOnly
 from .paginations import SetPagination
 from django_filters.rest_framework import DjangoFilterBackend, Filter
@@ -123,9 +123,36 @@ class SingleSideMenuView(generics.RetrieveUpdateDestroyAPIView):
         if self.request.method == 'GET':
             permission_classes = []
         else:
-            permission_classes = [IsAdminUser]
+            permission_classes = [IsManagerOnly]
+        return [permission() for permission in permission_classes]
+
+
+# sub side menu views
+
+class SubSideMenuView(generics.ListCreateAPIView):
+    queryset = SubSideMenu.objects.all()
+    serializer_class = SubSideMenuSerializer
+
+
+    def get_permissions(self):
+        if self.request.method == 'GET':
+            permission_classes = []
+        else:
+            permission_classes = [IsManagerOnly]
         return [permission() for permission in permission_classes]
     
+class SingleSubSideMenuView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = SubSideMenu.objects.all()
+    serializer_class = SubSideMenuSerializer
+
+
+    def get_permissions(self):
+        if self.request.method == 'GET':
+            permission_classes = []
+        else:
+            permission_classes = [IsManagerOnly]
+        return [permission() for permission in permission_classes]
+
 
 
 # product 

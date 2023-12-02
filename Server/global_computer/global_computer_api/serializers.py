@@ -30,9 +30,12 @@ class CategorySerializer(serializers.ModelSerializer):
 
 # side menu
 class SubSideMenuSerializer(serializers.ModelSerializer):
+    side_menu = serializers.StringRelatedField(read_only=True)
+    side_menu_id = serializers.IntegerField(write_only=True)
+
     class Meta:
         model = SubSideMenu
-        fields = ['id', 'slug', 'name']
+        fields = ['id', 'slug', 'name', 'side_menu', 'side_menu_id']
 
 
 class SideMenuSerializer(serializers.ModelSerializer):
@@ -46,9 +49,16 @@ class SideMenuSerializer(serializers.ModelSerializer):
     class Meta:
         model = SideMenu
         fields = ['id', 'title', 'slug', 'logo', 'query', 'sub_side_menu', 'uploaded_submenu']
+    
 
     def create(self, validated_data):
-        return super().create(validated_data)
+        uploaded_submenu = validated_data.pop("uploaded_submenu")
+        side_menu = SideMenu.objects.create(**validated_data)
+        for submenu in uploaded_submenu:
+            newSubMenu = SubSideMenu.objects.create(side_menu_id=side_menu.id, name=submenu)
+        
+        return side_menu
+
 
 # product image
 class ProductImageSerializer(serializers.ModelSerializer):

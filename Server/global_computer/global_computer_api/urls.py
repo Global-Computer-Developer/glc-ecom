@@ -9,6 +9,8 @@ urlpatterns = [
     path('brand/<slug:slug>', views.SingleBrandView.as_view()),
     path('side-menu/', views.SideMenuView.as_view()),
     path('side-menu/<slug:slug>', views.SingleSideMenuView.as_view()),
+    path('sub-side-menu/', views.SubSideMenuView.as_view()),
+    path('sub-side-menu/<int:pk>', views.SingleSubSideMenuView.as_view()),
     path('product/', views.ProductView.as_view()),
     path('product/<slug:slug>', views.SingleProductView.as_view()),
     path('product-image/', views.ProductImagesView.as_view()),
