@@ -29,12 +29,11 @@ jobs:
           python3 manage.py collectstatic
           sudo service nginx restart
         env: 
-          NAME: ${{ vars.NAME }}
-          USER: ${{ vars.USER }}
-          PASSWORD: ${{ vars.PASSWORD }}
-          HOST: ${{ vars.HOST }}
-          PORT: ${{ vars.PORT }}
+          NAME: "global_ecom"
+          USER: "jahidul"
+          PASSWORD: "J@hidul42598475"
+          HOST: "localhost"
+          PORT: "3306"
           DEBUG_PRODUCTION: ${{ vars.DEBUG_PRODUCTION }}
-          DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
           
 
