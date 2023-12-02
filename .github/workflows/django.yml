@@ -34,6 +34,6 @@ jobs:
           HOST: ${{ vars.HOST }}
           PORT: ${{ vars.PORT }}
           DEBUG_PRODUCTION: ${{ vars.DEBUG_PRODUCTION }}
-          DJANGO_SECRET_KEY: ${{ vars.DJANGO_SECRET_KEY }}
+          DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
           
 
