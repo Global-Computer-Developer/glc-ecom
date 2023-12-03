@@ -24,6 +24,8 @@ jobs:
           source env/bin/activate
           pip install -r requirements.txt
           pip install mysqlclient
-
+        env: 
+          DEBUG_PRODUCTION: ${{ vars.DEBUG_PRODUCTION }}
+          DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
           
 
