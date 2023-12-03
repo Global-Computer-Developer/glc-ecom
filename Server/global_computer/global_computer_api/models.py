@@ -193,7 +193,7 @@ class Order(models.Model):
     total = models.DecimalField(max_digits=20, decimal_places=2)
     shipping_cost = models.DecimalField(max_digits=20, decimal_places=2, default=0)
     date = models.DateField(db_index=True)
-    phone = PhoneNumberField(blank=True)
+    phone = PhoneNumberField(default='', null=False)
     street_address = models.CharField(max_length=255, null=True)
     district = models.CharField(max_length=255, null=True)
     division = models.CharField(max_length=255, null=True)
