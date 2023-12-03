@@ -120,7 +120,7 @@ WSGI_APPLICATION = 'global_computer.wsgi.application'
 
 ### ------ MUST COMMENT OUT GLOBAL DATABASE BEFORE FINAL PUSH ------ ###
 
-if os.environ.get('DEBUG_PRODUCTION') == False:
+if os.environ.get('DEBUG_PRODUCTION') == True:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
