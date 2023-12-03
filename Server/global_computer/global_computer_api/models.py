@@ -191,6 +191,7 @@ class Order(models.Model):
     slug = models.SlugField(db_index=True, null=True)
     status = models.BooleanField(db_index=True, default=0)
     total = models.DecimalField(max_digits=20, decimal_places=2)
+    shipping_cost = models.DecimalField(max_digits=20, decimal_places=2, default=0)
     date = models.DateField(db_index=True)
     phone = PhoneNumberField(blank=True)
     street_address = models.CharField(max_length=255, null=True)

@@ -302,7 +302,7 @@ class OrderSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Order 
-        fields = ['id', 'user', 'user_id', 'slug', 'status', 'total', 'date', 'phone', 
+        fields = ['id', 'user', 'user_id', 'slug', 'status', 'total', 'shipping_cost', 'date', 'phone', 
                   'street_address', 'district', 'division', 'order_note', 
                   'payment_method', 'orders']
         
@@ -315,7 +315,7 @@ class SingleOrderSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Order 
-        fields = ['id', 'user', 'user_id', 'slug', 'status', 'total', 'date', 'phone', 
+        fields = ['id', 'user', 'user_id', 'slug', 'status', 'total', 'shipping_cost', 'date', 'phone', 
                   'street_address', 'district', 'division', 'order_note', 
                   'payment_method', 'orders']
 
