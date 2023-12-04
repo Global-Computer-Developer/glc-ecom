@@ -158,10 +158,9 @@ class Reviews(models.Model):
 
 # slider
 class Slider(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, db_index=True)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, db_index=True)
-    mini_text = models.CharField(max_length=255, null=True)
-    mid_text = models.CharField(max_length=255, null=True)
+    slider_url = models.CharField(max_length=255, default='')
+    mini_text = models.CharField(max_length=255, null=True, default='')
+    mid_text = models.CharField(max_length=255, null=True, default='')
     color = models.BooleanField(default=False)
     image = models.ImageField(upload_to='images/slider')
 

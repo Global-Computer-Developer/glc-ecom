@@ -265,13 +265,9 @@ class SingleProductImageSerializer(serializers.ModelSerializer):
 
 # slider
 class SliderSerializer(serializers.ModelSerializer):
-    product = ProductSerializer(read_only=True)
-    product_id = serializers.IntegerField(write_only=True)
-    category = serializers.StringRelatedField(read_only=True)
-    category_id = serializers.IntegerField(write_only=True)
     class Meta:
         model = Slider
-        fields = ['id', 'product', 'category', 'category_id', 'mini_text', 'mid_text', 'color', 'image', 'product_id']
+        fields = ['id', 'slider_url', 'mini_text', 'mid_text', 'color', 'image']
 
 
 # banner

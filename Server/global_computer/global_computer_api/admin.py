@@ -41,7 +41,7 @@ class reviewAdmin(admin.ModelAdmin):
 
 @admin.register(Slider)
 class sliderAdmin(admin.ModelAdmin):
-    list_display = ['id', 'product', 'category']
+    list_display = ['id']
 
 
 
