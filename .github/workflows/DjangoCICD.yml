@@ -28,6 +28,6 @@ jobs:
           PASSWORD: "J@hidul42598475"
           HOST: "localhost"
           PORT: "3306"
-          DEBUG: "True"
+          DEBUG: "False"
           DJANGO_SECRET_KEY: "django-insecure-wpx$@io&-dzyks&m=z%&uc=4b!qn*@6no$(^a(!qivf2jypr#z"
       
