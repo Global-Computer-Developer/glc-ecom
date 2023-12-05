@@ -122,7 +122,7 @@ WSGI_APPLICATION = 'global_computer.wsgi.application'
 
 ### ------ MUST COMMENT OUT GLOBAL DATABASE BEFORE FINAL PUSH ------ ###
 
-if os.getenv('DEBUG', False) == 'False':
+if os.environ.get('DEBUG') == 'False':
     # DATABASES = {
     #     'default': {
     #         'ENGINE': 'django.db.backends.mysql',
@@ -200,7 +200,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-if os.getenv('DEBUG', False) == 'False':
+if os.environ.get('DEBUG') == 'False':
     STATIC_DIRS = '/home/jahidul/global_computer_api/static'
     STATIC_ROOT = '/home/jahidul/global_computer_api/static'
     MEDIA_ROOT = '/home/jahidul/global_computer_api/media'
