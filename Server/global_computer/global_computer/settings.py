@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG')
+DEBUG = os.getenv('DEBUG', False) == 'True'
 
 
 ### ------ DJANGO APP SECURITY -------###
@@ -120,17 +120,7 @@ WSGI_APPLICATION = 'global_computer.wsgi.application'
 
 ### ------ MUST COMMENT OUT GLOBAL DATABASE BEFORE FINAL PUSH ------ ###
 
-if os.environ.get('DEBUG') == True:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
-    
-
-else:
-    
+if os.getenv('DEBUG', False) == 'False':
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
@@ -140,6 +130,15 @@ else:
             'HOST': os.environ.get('HOST'),
             'PORT': os.environ.get('PORT'),
             # 'OPTIONS': {'sslmode': 'require'},
+        }
+    }
+    
+
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
 
