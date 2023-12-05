@@ -138,7 +138,7 @@ if os.getenv('DEBUG', False) == 'False':
         'default': {
             'ENGINE': 'django.db.backends.mysql',
             'NAME': 'global_ecom',
-            'USER': 'jahidul',
+            'USER': 'root',
             'PASSWORD': 'J@hidul42598475',
             'HOST': 'localhost',
             'PORT': '3306',
