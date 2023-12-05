@@ -203,6 +203,7 @@ STATIC_URL = 'static/'
 if os.getenv('DEBUG', False) == 'False':
     STATIC_DIRS = '/home/jahidul/global_computer_api/static'
     STATIC_ROOT = '/home/jahidul/global_computer_api/static'
+    MEDIA_DIRS = '/home/jahidul/global_computer_api/media'
     MEDIA_ROOT = '/home/jahidul/global_computer_api/media'
 else:
     STATIC_DIRS = os.path.join(BASE_DIR, 'static')
