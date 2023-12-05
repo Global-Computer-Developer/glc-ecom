@@ -20,7 +20,6 @@ jobs:
           pip install -r requirements.txt mysqlclient
           python3 manage.py makemigrations
           python3 manage.py migrate
-          python3 manage.py collectstatic
           sudo service gunicorn restart
           sudo service nginx restart
         env:
