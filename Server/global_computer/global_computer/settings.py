@@ -200,15 +200,14 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-if os.getenv('DEBUG', False) == 'False':
-    STATIC_DIRS = '/home/jahidul/global_computer_api/static'
-    STATIC_ROOT = '/home/jahidul/global_computer_api/static'
-    MEDIA_DIRS = '/home/jahidul/global_computer_api/media'
-    MEDIA_ROOT = '/home/jahidul/global_computer_api/media'
-else:
-    STATIC_DIRS = os.path.join(BASE_DIR, 'static')
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
-    MEDIA_ROOT = BASE_DIR/'media'
+# if os.getenv('DEBUG', False) == 'False':
+#     STATIC_DIRS = '/home/jahidul/global_computer_api/static'
+#     STATIC_ROOT = '/home/jahidul/global_computer_api/static'
+#     MEDIA_ROOT = '/home/jahidul/global_computer_api/media'
+# else:
+STATIC_DIRS = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+MEDIA_ROOT = BASE_DIR/'media'
 
 
 MEDIA_URL = "img/"
