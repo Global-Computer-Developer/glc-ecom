@@ -15,7 +15,7 @@ jobs:
       - name: Set up python 3.11
         uses: actions/setup-python@v3
         with: 
-          python-version: 3.11
+          python-version: 3
       - name: Install Dependency
         run: |
           cd Server/global_computer 
