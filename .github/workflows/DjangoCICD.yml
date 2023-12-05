@@ -21,13 +21,11 @@ jobs:
           python manage.py makemigrations
           python manage.py migrate
           python manage.py migrate --run-syncdb
-          python manage.py schemamigration research --init
-          python manage.py schemamigration research
           sudo service gunicorn restart
           sudo service nginx restart
         env:
-          NAME: "global_ecom" 
-          USER: "jahidul"
+          NAME: "glc_db" 
+          USER: "root"
           PASSWORD: "J@hidul42598475"
           HOST: "localhost"
           PORT: "3306"
