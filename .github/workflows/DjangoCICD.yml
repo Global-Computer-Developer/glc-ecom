@@ -24,8 +24,8 @@ jobs:
           sudo service gunicorn restart
           sudo service nginx restart
         env:
-          NAME: "glc_db" 
-          USER: "root"
+          NAME: "global_ecom" 
+          USER: "jahidul"
           PASSWORD: "J@hidul42598475"
           HOST: "localhost"
           PORT: "3306"
