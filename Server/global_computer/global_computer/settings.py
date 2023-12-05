@@ -121,7 +121,7 @@ WSGI_APPLICATION = 'global_computer.wsgi.application'
 
 ### ------ MUST COMMENT OUT GLOBAL DATABASE BEFORE FINAL PUSH ------ ###
 
-if os.getenv('DEBUG', False) == 'False':
+# if os.getenv('DEBUG', False) == 'False':
     # DATABASES = {
     #     'default': {
     #         'ENGINE': 'django.db.backends.mysql',
@@ -134,26 +134,26 @@ if os.getenv('DEBUG', False) == 'False':
     #     }
     # }
 
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'global_ecom',
-            'USER': 'root',
-            'PASSWORD': 'J@hidul42598475',
-            'HOST': 'localhost',
-            'PORT': '3306',
-            # 'OPTIONS': {'sslmode': 'require'},
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'global_ecom',
+        'USER': 'root',
+        'PASSWORD': 'J@hidul42598475',
+        'HOST': 'localhost',
+        'PORT': '3306',
+        # 'OPTIONS': {'sslmode': 'require'},
     }
+}
     
 
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
+# else:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.sqlite3',
+#             'NAME': BASE_DIR / 'db.sqlite3',
+#         }
+#     }
 
 
 
