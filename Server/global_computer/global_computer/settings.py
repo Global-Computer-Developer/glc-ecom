@@ -137,7 +137,7 @@ if os.getenv('DEBUG', False) == 'False':
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'global_ecom',
+            'NAME': 'glc_db',
             'USER': 'root',
             'PASSWORD': 'J@hidul42598475',
             'HOST': 'localhost',
