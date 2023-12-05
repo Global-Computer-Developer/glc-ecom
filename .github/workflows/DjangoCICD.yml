@@ -21,6 +21,8 @@ jobs:
           python manage.py makemigrations
           python manage.py migrate
           python manage.py migrate --run-syncdb
+          python manage.py schemamigration research --init
+          python manage.py schemamigration research
           sudo service gunicorn restart
           sudo service nginx restart
         env:
