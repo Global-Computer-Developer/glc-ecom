@@ -30,10 +30,7 @@ SECRET_KEY = 'django-insecure-wpx$@io&-dzyks&m=z%&uc=4b!qn*@6no$(^a(!qivf2jypr#z
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 # DEBUG = os.getenv('DEBUG', False) == 'True'
-if os.environ.get('DEBUG') == 'False':
-    DEBUG = False
-else:
-    DEBUG = True
+DEBUG = True
 
 
 ### ------ DJANGO APP SECURITY -------###
@@ -126,29 +123,29 @@ WSGI_APPLICATION = 'global_computer.wsgi.application'
 ### ------ MUST COMMENT OUT GLOBAL DATABASE BEFORE FINAL PUSH ------ ###
 
 if os.getenv('DEBUG') == 'False':
+    # DATABASES = {
+    #     'default': {
+    #         'ENGINE': 'django.db.backends.mysql',
+    #         'NAME': os.environ.get('NAME'),
+    #         'USER': os.environ.get('USER'),
+    #         'PASSWORD': os.environ.get('PASSWORD'),
+    #         'HOST': os.environ.get('HOST'),
+    #         'PORT': os.environ.get('PORT'),
+    #         # 'OPTIONS': {'sslmode': 'require'},
+    #     }
+    # }
+
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': os.environ.get('NAME'),
-            'USER': os.environ.get('USER'),
-            'PASSWORD': os.environ.get('PASSWORD'),
-            'HOST': os.environ.get('HOST'),
-            'PORT': os.environ.get('PORT'),
+            'NAME': 'global_ecom',
+            'USER': 'root',
+            'PASSWORD': 'J@hidul42598475',
+            'HOST': 'localhost',
+            'PORT': '3306',
             # 'OPTIONS': {'sslmode': 'require'},
         }
     }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'global_ecom',
-#         'USER': 'root',
-#         'PASSWORD': 'J@hidul42598475',
-#         'HOST': 'localhost',
-#         'PORT': '3306',
-#         # 'OPTIONS': {'sslmode': 'require'},
-#     }
-# }
     
 
 else:
