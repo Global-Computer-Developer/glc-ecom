@@ -29,8 +29,8 @@ SECRET_KEY = 'django-insecure-wpx$@io&-dzyks&m=z%&uc=4b!qn*@6no$(^a(!qivf2jypr#z
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
-# DEBUG = os.getenv('DEBUG', False) == 'True'
-DEBUG = True
+DEBUG = os.getenv('DEBUG', False) == 'False'
+# DEBUG = True
 
 
 ### ------ DJANGO APP SECURITY -------###
@@ -122,7 +122,7 @@ WSGI_APPLICATION = 'global_computer.wsgi.application'
 
 ### ------ MUST COMMENT OUT GLOBAL DATABASE BEFORE FINAL PUSH ------ ###
 
-if os.environ.get('DEBUG') == 'False':
+# if os.environ.get('DEBUG') == 'False':
     # DATABASES = {
     #     'default': {
     #         'ENGINE': 'django.db.backends.mysql',
@@ -135,26 +135,26 @@ if os.environ.get('DEBUG') == 'False':
     #     }
     # }
 
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'global_ecom',
-            'USER': 'root',
-            'PASSWORD': 'J@hidul42598475',
-            'HOST': 'localhost',
-            'PORT': '3306',
-            # 'OPTIONS': {'sslmode': 'require'},
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'global_ecom',
+        'USER': 'root',
+        'PASSWORD': 'J@hidul42598475',
+        'HOST': 'localhost',
+        'PORT': '3306',
+        # 'OPTIONS': {'sslmode': 'require'},
     }
+}
     
 
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
+# else:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.sqlite3',
+#             'NAME': BASE_DIR / 'db.sqlite3',
+#         }
+#     }
 
 
 
@@ -200,7 +200,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-if os.environ.get('DEBUG') == 'False':
+if os.getenv('DEBUG', False) == 'False':
     STATIC_DIRS = '/home/jahidul/global_computer_api/static'
     STATIC_ROOT = '/home/jahidul/global_computer_api/static'
     MEDIA_ROOT = '/home/jahidul/global_computer_api/media'
