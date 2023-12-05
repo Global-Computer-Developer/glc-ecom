@@ -18,8 +18,8 @@ jobs:
           virtualenv env
           source env/bin/activate
           pip install -r requirements.txt mysqlclient
-          python3 manage.py makemigrations
-          python3 manage.py migrate
+          python manage.py makemigrations
+          python manage.py migrate --run-syncdb
           sudo service gunicorn restart
           sudo service nginx restart
         env:
