@@ -11,7 +11,7 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      # - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
       - name: Install Dependency
         run: |
           cd Server/global_computer 
@@ -21,6 +21,7 @@ jobs:
           python manage.py makemigrations
           python manage.py migrate
           python manage.py migrate --run-syncdb
+          python manage.py collectstatic
           sudo service gunicorn restart
           sudo service nginx restart
         env:
