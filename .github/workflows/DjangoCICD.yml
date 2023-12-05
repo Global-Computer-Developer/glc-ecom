@@ -9,6 +9,9 @@ on:
 jobs:
   build:
     runs-on: self-hosted
+    strategy:
+      matrix:
+        python-version: [3.11.6]
 
     steps:
       - uses: actions/checkout@v3
