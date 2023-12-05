@@ -20,6 +20,7 @@ jobs:
           pip install -r requirements.txt mysqlclient
           python3 manage.py makemigrations
           python3 manage.py migrate
+          python3 manage.py collectstatic
         env:
           NAME: "global_ecom" 
           USER: "jahidul"
