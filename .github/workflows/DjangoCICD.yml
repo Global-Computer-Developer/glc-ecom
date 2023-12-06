@@ -34,7 +34,7 @@ jobs:
 
       - name: Copy media file from backup
         run: |
-          cp -r /home/jahidul/glc-ecom/Server/global_computer/media /home/jahidul/glc-ecom/Server/global_computer_api/media
+          cp -r /home/jahidul/glc-ecom/Server/global_computer/media /home/jahidul/global_computer_api/media
           
 
 
