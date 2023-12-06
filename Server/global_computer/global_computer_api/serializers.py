@@ -149,6 +149,9 @@ class ProductSerializer(serializers.ModelSerializer):
         write_only=True
     )
 
+    specification = SpecificationSerializer(many=True, read_only=True)
+
+
     class Meta:
         model = Product
         fields = [
@@ -156,7 +159,7 @@ class ProductSerializer(serializers.ModelSerializer):
                     'model_name', 'price', 'prev_price', 'emi_price', 'average_stars', 'count_review',
                     'discount', 'is_stock', 'sold_stock', 'total_stock', 'description', "side_menu_id",
                     'featured', 'offered', 'offered_time', 'display_big',
-                    'images', 'uploaded_images', 'key_features',
+                    'images', 'uploaded_images', 'key_features', 'specification'
                 ]
         
     def create(self, validated_data):

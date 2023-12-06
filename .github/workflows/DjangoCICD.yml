@@ -21,7 +21,6 @@ jobs:
           DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
           DEBUG: ${{ vars.DEBUG }}
         run: |
-          echo 'reset the local repo'
           cd Server/global_computer 
           virtualenv env
           source env/bin/activate
