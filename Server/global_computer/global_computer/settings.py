@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-wpx$@io&-dzyks&m=z%&uc=4b!qn*@6no$(^a(!qivf2jypr#z'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
 ### ------ DJANGO APP SECURITY -------###
@@ -189,7 +189,7 @@ MEDIA_URL = "/media/"
 # STATIC_DIRS = os.path.join(BASE_DIR, 'static')
 # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
+# 
 
 STATIC_DIRS = '/home/jahidul/global_computer_api/static'
 STATIC_ROOT = '/home/jahidul/global_computer_api/static'
