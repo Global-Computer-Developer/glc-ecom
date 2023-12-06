@@ -11,6 +11,7 @@ jobs:
     runs-on: self-hosted
 
     steps:
+      - uses: actions/checkout@v4
       - name: Install Dependency
         env:
           NAME: ${{ vars.NAME }}
@@ -29,6 +30,7 @@ jobs:
           python manage.py migrate
           sudo service gunicorn restart
           sudo service nginx restart
+          
 
 
       
