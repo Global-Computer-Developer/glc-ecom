@@ -11,6 +11,7 @@ jobs:
     runs-on: self-hosted
 
     steps:
+      
       - uses: actions/checkout@v4
       - name: Install Dependency
         env:
@@ -30,6 +31,7 @@ jobs:
           python manage.py migrate
           sudo service gunicorn restart
           sudo service nginx restart
+          cp -r /home/jahidul/glc-ecom/Server/global_computer/media /var/www/global_computer_api/_work/glc-ecom/glc-ecom/Server/global_computer/media
           
 
 
