@@ -25,12 +25,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-wpx$@io&-dzyks&m=z%&uc=4b!qn*@6no$(^a(!qivf2jypr#z'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = os.getenv('DEBUG', False) == 'False'
-# DEBUG = True
+DEBUG = True
+# DEBUG = os.getenv('DEBUG', False) == 'False'
 
 
 ### ------ DJANGO APP SECURITY -------###
@@ -122,39 +121,40 @@ WSGI_APPLICATION = 'global_computer.wsgi.application'
 
 ### ------ MUST COMMENT OUT GLOBAL DATABASE BEFORE FINAL PUSH ------ ###
 
-# if os.environ.get('DEBUG') == 'False':
-    # DATABASES = {
-    #     'default': {
-    #         'ENGINE': 'django.db.backends.mysql',
-    #         'NAME': os.environ.get('NAME'),
-    #         'USER': os.environ.get('USER'),
-    #         'PASSWORD': os.environ.get('PASSWORD'),
-    #         'HOST': os.environ.get('HOST'),
-    #         'PORT': os.environ.get('PORT'),
-    #         # 'OPTIONS': {'sslmode': 'require'},
-    #     }
-    # }
-
+# if os.getenv('DEBUG', False) == 'False':
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'global_ecom',
-        'USER': 'root',
-        'PASSWORD': 'J@hidul42598475',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'NAME': os.environ.get('NAME'),
+        'USER': os.environ.get('USER'),
+        'PASSWORD': os.environ.get('PASSWORD'),
+        'HOST': os.environ.get('HOST'),
+        'PORT': os.environ.get('PORT'),
         # 'OPTIONS': {'sslmode': 'require'},
     }
 }
+
+    # DATABASES = {
+    #     'default': {
+    #         'ENGINE': 'django.db.backends.mysql',
+    #         'NAME': 'glc_db',
+    #         'USER': 'jahidul',
+    #         'PASSWORD': 'J@hidul42598475',
+    #         'HOST': 'localhost',
+    #         'PORT': '3306',
+    #         # 'OPTIONS': {'sslmode': 'require'},
+    #     }
+    # }
     
 
 # else:
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.sqlite3',
-#             'NAME': BASE_DIR / 'db.sqlite3',
-#         }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
+# }
 
 
 
@@ -199,15 +199,18 @@ USE_TZ = True
 
 
 STATIC_URL = 'static/'
+MEDIA_URL = "/media/"
 
-# if os.getenv('DEBUG', False) == 'False':
-#     STATIC_DIRS = '/home/jahidul/global_computer_api/static'
-#     STATIC_ROOT = '/home/jahidul/global_computer_api/static'
-#     MEDIA_ROOT = '/home/jahidul/global_computer_api/media'
-# else:
-STATIC_DIRS = os.path.join(BASE_DIR, 'static')
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
+# STATIC_DIRS = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+STATIC_DIRS = '/home/jahidul/global_computer_api/static'
+STATIC_ROOT = '/home/jahidul/global_computer_api/static'
+
+MEDIA_ROOT = '/home/jahidul/global_computer_api/media'
 
 
 
@@ -240,8 +243,7 @@ REST_FRAMEWORK = {
 
 
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = "/media/"
+
 
 
 
