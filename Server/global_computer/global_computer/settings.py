@@ -136,7 +136,6 @@ if os.getenv('DEBUG') == 'False':
         }
     }
 
-
 else:
     DATABASES = {
         'default': {
