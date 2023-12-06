@@ -191,9 +191,9 @@ MEDIA_URL = "/media/"
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
-STATIC_DIRS = '/home/jahidul/global_computer/static'
-STATIC_ROOT = '/home/jahidul/global_computer/static'
-MEDIA_ROOT = '/home/jahidul/global_computer/media'
+STATIC_DIRS = '/home/jahidul/global_computer_api/static'
+STATIC_ROOT = '/home/jahidul/global_computer_api/static'
+MEDIA_ROOT = '/home/jahidul/global_computer_api/media'
 
 
 
