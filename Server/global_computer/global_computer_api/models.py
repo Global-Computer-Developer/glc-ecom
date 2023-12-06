@@ -157,15 +157,12 @@ class Reviews(models.Model):
     
 
 # slider
-# class Slider(models.Model):
-    
-    # slider_url = models.CharField(max_length=255, default='')
-    # mini_text = models.CharField(max_length=255, null=True, default='')
-    # mid_text = models.CharField(max_length=255, null=True, default='')
-    # color = models.BooleanField(default=False)
-    # image = models.ImageField(upload_to='images/slider')
-    # image1 = models.ImageField(upload_to='images/slider')
-
+class Slider(models.Model):
+    slider_url = models.CharField(max_length=255, default='')
+    mini_text = models.CharField(max_length=255, null=True, default='')
+    mid_text = models.CharField(max_length=255, null=True, default='')
+    color = models.BooleanField(default=False)
+    image = models.ImageField(upload_to='images/slider')
     
 
 # banner
