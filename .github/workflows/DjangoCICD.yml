@@ -32,10 +32,6 @@ jobs:
           DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
           DEBUG: ${{ vars.DEBUG }}
 
-      - name: Copy media file from backup
-        run: |
-          cp -r /home/jahidul/glc-ecom/Server/global_computer/media /home/jahidul/global_computer_api/media
-          
 
 
       
