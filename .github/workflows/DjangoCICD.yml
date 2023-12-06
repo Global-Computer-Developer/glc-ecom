@@ -14,14 +14,6 @@ jobs:
       
       - uses: actions/checkout@v4
       - name: Install Dependency
-        env:
-          NAME: ${{ vars.NAME }}
-          PASSWORD: ${{ vars.PASSWORD }}
-          HOST: ${{ vars.HOST }}
-          POST: ${{ vars.POST }}
-          USER: ${{ vars.USER }}
-          DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
-          DEBUG: ${{ vars.DEBUG }}
         run: |
           cd Server/global_computer 
           virtualenv env
@@ -31,6 +23,14 @@ jobs:
           python manage.py migrate
           sudo service gunicorn restart
           sudo service nginx restart
+        env:
+          NAME: ${{ vars.NAME }}
+          PASSWORD: ${{ vars.PASSWORD }}
+          HOST: ${{ vars.HOST }}
+          POST: ${{ vars.POST }}
+          USER: ${{ vars.USER }}
+          DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
+          DEBUG: ${{ vars.DEBUG }}
 
       - name: Copy media file from backup
         run: |
