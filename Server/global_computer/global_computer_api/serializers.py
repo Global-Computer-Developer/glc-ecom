@@ -133,6 +133,7 @@ class ReviewSerializer(serializers.ModelSerializer):
 
 # product
 class ProductSerializer(serializers.ModelSerializer):
+    id = serializers.UUIDField()
     category = CategorySerializer(read_only=True)
     category_id = serializers.IntegerField(write_only=True)
     brand_id = serializers.IntegerField(write_only=True)
@@ -268,6 +269,8 @@ class SingleProductImageSerializer(serializers.ModelSerializer):
 
 # slider
 class SliderSerializer(serializers.ModelSerializer):
+
+    id = serializers.UUIDField()
     class Meta:
         model = Slider
         fields = ['id', 'slider_url', 'mini_text', 'mid_text', 'color', 'image']
