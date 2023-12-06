@@ -122,29 +122,29 @@ WSGI_APPLICATION = 'global_computer.wsgi.application'
 ### ------ MUST COMMENT OUT GLOBAL DATABASE BEFORE FINAL PUSH ------ ###
 
 # if os.getenv('DEBUG', False) == 'False':
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get('NAME'),
-        'USER': os.environ.get('USER'),
-        'PASSWORD': os.environ.get('PASSWORD'),
-        'HOST': os.environ.get('HOST'),
-        'PORT': os.environ.get('PORT'),
-        # 'OPTIONS': {'sslmode': 'require'},
-    }
-}
-
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'glc_db',
-#         'USER': 'jahidul',
-#         'PASSWORD': 'J@hidul42598475',
-#         'HOST': 'localhost',
-#         'PORT': '3306',
+#         'NAME': os.environ.get('NAME'),
+#         'USER': os.environ.get('USER'),
+#         'PASSWORD': os.environ.get('PASSWORD'),
+#         'HOST': os.environ.get('HOST'),
+#         'PORT': os.environ.get('PORT'),
 #         # 'OPTIONS': {'sslmode': 'require'},
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'global_ecom',
+        'USER': 'jahidul',
+        'PASSWORD': 'J@hidul42598475',
+        'HOST': 'localhost',
+        'PORT': '3306',
+        # 'OPTIONS': {'sslmode': 'require'},
+    }
+}
     
 
 # else:
@@ -199,18 +199,14 @@ USE_TZ = True
 
 
 STATIC_URL = 'static/'
+
+
+STATIC_DIRS = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = "/media/"
 
-
-# STATIC_DIRS = os.path.join(BASE_DIR, 'static')
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
-
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-STATIC_DIRS = '/home/jahidul/global_computer_api/static'
-STATIC_ROOT = '/home/jahidul/global_computer_api/static'
-
-MEDIA_ROOT = '/home/jahidul/global_computer_api/media'
 
 
 
