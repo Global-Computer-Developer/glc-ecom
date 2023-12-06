@@ -163,6 +163,7 @@ class Slider(models.Model):
     mid_text = models.CharField(max_length=255, null=True, default='')
     color = models.BooleanField(default=False)
     image = models.ImageField(upload_to='images/slider')
+    image1 = models.ImageField(upload_to='images/slider')
 
     def __str__(self) -> str:
         return self.product.title
