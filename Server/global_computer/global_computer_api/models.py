@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth import get_user_model
 from django.template.defaultfilters import slugify
 from phonenumber_field.modelfields import PhoneNumberField
-
+import uuid 
 
 User = get_user_model()
 
@@ -158,6 +158,7 @@ class Reviews(models.Model):
 
 # slider
 class Slider(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     slider_url = models.CharField(max_length=255, default='')
     mini_text = models.CharField(max_length=255, null=True, default='')
     mid_text = models.CharField(max_length=255, null=True, default='')
