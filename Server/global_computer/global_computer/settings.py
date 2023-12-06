@@ -122,29 +122,29 @@ WSGI_APPLICATION = 'global_computer.wsgi.application'
 ### ------ MUST COMMENT OUT GLOBAL DATABASE BEFORE FINAL PUSH ------ ###
 
 # if os.getenv('DEBUG', False) == 'False':
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': os.environ.get('NAME'),
-#         'USER': os.environ.get('USER'),
-#         'PASSWORD': os.environ.get('PASSWORD'),
-#         'HOST': os.environ.get('HOST'),
-#         'PORT': os.environ.get('PORT'),
-#         # 'OPTIONS': {'sslmode': 'require'},
-#     }
-# }
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'glc_db',
-        'USER': 'jahidul',
-        'PASSWORD': 'J@hidul42598475',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'NAME': os.environ.get('NAME'),
+        'USER': os.environ.get('USER'),
+        'PASSWORD': os.environ.get('PASSWORD'),
+        'HOST': os.environ.get('HOST'),
+        'PORT': os.environ.get('PORT'),
         # 'OPTIONS': {'sslmode': 'require'},
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'glc_db',
+#         'USER': 'jahidul',
+#         'PASSWORD': 'J@hidul42598475',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
+#         # 'OPTIONS': {'sslmode': 'require'},
+#     }
+# }
     
 
 # else:
