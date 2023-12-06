@@ -1,10 +1,10 @@
 from typing import Any
 from django.shortcuts import render
-from .models import Newsteller, Category, Banner, Product, Slider, Order, OrderItem, Brand, KeyFeature, SpecTable, Specification, Reviews, SideMenu, SubSideMenu, ProductImage
+from .models import Newsteller, Category, Banner, Product, Order, OrderItem, Brand, KeyFeature, SpecTable, Specification, Reviews, SideMenu, SubSideMenu, ProductImage
 from django.contrib.auth import  get_user_model
 from rest_framework import generics
 from rest_framework.permissions import IsAdminUser, IsAuthenticated
-from .serializers import SubSideMenuSerializer, UserProfileSerializer, SingleOrderSerializer, NewstellerSerializer, ReviewSerializer, CategorySerializer, BrandSerializer, BannerSerializer, ProductSerializer, KeyFeatureSerializer, SliderSerializer, OrderItemSerializer, OrderSerializer, SpecificationSerializer, SpecTableSerializer, SingleProductSerializer, ReviewSerializer, SideMenuSerializer, SingleProductImageSerializer
+from .serializers import SubSideMenuSerializer, UserProfileSerializer, SingleOrderSerializer, NewstellerSerializer, ReviewSerializer, CategorySerializer, BrandSerializer, BannerSerializer, ProductSerializer, KeyFeatureSerializer, OrderItemSerializer, OrderSerializer, SpecificationSerializer, SpecTableSerializer, SingleProductSerializer, ReviewSerializer, SideMenuSerializer, SingleProductImageSerializer
 from .permissions import IsManagerOnly
 from .paginations import SetPagination
 from django_filters.rest_framework import DjangoFilterBackend, Filter
@@ -436,42 +436,42 @@ class SingleSpecView(generics.RetrieveUpdateDestroyAPIView):
         return [permission() for permission in permission_classes]
 
 
-# slider
-class SliderView(generics.ListCreateAPIView):
-    queryset = Slider.objects.all()
-    serializer_class = SliderSerializer
+# # slider
+# class SliderView(generics.ListCreateAPIView):
+#     queryset = Slider.objects.all()
+#     serializer_class = SliderSerializer
 
-    def get_permissions(self):
-        if self.request.method == 'GET':
-            permission_classes = []
-        else:
-            permission_classes = [IsAdminUser]
-        return [permission() for permission in permission_classes]
+#     def get_permissions(self):
+#         if self.request.method == 'GET':
+#             permission_classes = []
+#         else:
+#             permission_classes = [IsAdminUser]
+#         return [permission() for permission in permission_classes]
     
 
 
-class SingleSliderView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Slider.objects.all()
-    serializer_class = SliderSerializer
+# class SingleSliderView(generics.RetrieveUpdateDestroyAPIView):
+#     queryset = Slider.objects.all()
+#     serializer_class = SliderSerializer
 
-    def get_permissions(self):
-        if self.request.method == 'GET':
-            permission_classes = []
-        else:
-            permission_classes = [IsAdminUser]
-        return [permission() for permission in permission_classes]
+#     def get_permissions(self):
+#         if self.request.method == 'GET':
+#             permission_classes = []
+#         else:
+#             permission_classes = [IsAdminUser]
+#         return [permission() for permission in permission_classes]
     
-    def put(self, request, pk, *args, **kwargs):
-        slider = Slider.objects.get(pk=pk)
-        if len(slider.image) > 0 :
-            os.remove(slider.image.path)
-        return super().put(request, *args, **kwargs)
+#     def put(self, request, pk, *args, **kwargs):
+#         slider = Slider.objects.get(pk=pk)
+#         if len(slider.image) > 0 :
+#             os.remove(slider.image.path)
+#         return super().put(request, *args, **kwargs)
     
-    def delete(self, request, pk, *args, **kwargs):
-        slider = Slider.objects.get(pk=pk)
-        if len(slider.image) > 0 :
-            os.remove(slider.image.path)
-        return super().delete(request, *args, **kwargs)
+#     def delete(self, request, pk, *args, **kwargs):
+#         slider = Slider.objects.get(pk=pk)
+#         if len(slider.image) > 0 :
+#             os.remove(slider.image.path)
+#         return super().delete(request, *args, **kwargs)
 
 
 

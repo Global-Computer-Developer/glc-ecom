@@ -157,8 +157,8 @@ class Reviews(models.Model):
     
 
 # slider
-class Slider(models.Model):
-    pass
+# class Slider(models.Model):
+    
     # slider_url = models.CharField(max_length=255, default='')
     # mini_text = models.CharField(max_length=255, null=True, default='')
     # mid_text = models.CharField(max_length=255, null=True, default='')

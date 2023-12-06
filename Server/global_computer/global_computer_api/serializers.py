@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Newsteller, SideMenu, SubSideMenu, Category, Brand, Product, Reviews, Order, OrderItem, Slider, Banner, ProductImage, KeyFeature, Specification, SpecTable
+from .models import Newsteller, SideMenu, SubSideMenu, Category, Brand, Product, Reviews, Order, OrderItem, Banner, ProductImage, KeyFeature, Specification, SpecTable
 from django.db.models import Avg, Count
 from global_computer import settings
 from django.contrib.auth import get_user_model
@@ -264,11 +264,10 @@ class SingleProductImageSerializer(serializers.ModelSerializer):
 
 
 # slider
-class SliderSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Slider
-        # fields = ['id', 'slider_url', 'mini_text', 'mid_text', 'color', 'image']
-        fields = ['id']
+# class SliderSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Slider
+#         fields = ['id', 'slider_url', 'mini_text', 'mid_text', 'color', 'image']
 
 
 # banner
