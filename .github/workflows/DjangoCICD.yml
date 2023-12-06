@@ -23,12 +23,5 @@ jobs:
           python manage.py migrate --run-syncdb
           sudo service gunicorn restart
           sudo service nginx restart
-        env:
-          NAME: "global_ecom" 
-          USER: "root"
-          PASSWORD: "J@hidul42598475"
-          HOST: "localhost"
-          PORT: "3306"
-          DEBUG: "False"
-          DJANGO_SECRET_KEY: "'django-insecure-wpx$@io&-dzyks&m=z%&uc=4b!qn*@6no$(^a(!qivf2jypr#z'"
+
       
