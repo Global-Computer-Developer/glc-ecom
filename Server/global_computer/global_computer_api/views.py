@@ -26,7 +26,7 @@ currentDate = datetime.datetime.now().date()
 class CategoryView(generics.ListCreateAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
-    filter_backends = [filters.OrderingFilter, DjangoFilterBackend]
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
     filterset_fields = ['slug']
     pagination_class = SetPagination
 
@@ -58,7 +58,7 @@ class SingleCategoryView(generics.RetrieveUpdateDestroyAPIView):
 class BrandView(generics.ListCreateAPIView):
     queryset = Brand.objects.all()
     serializer_class = BrandSerializer
-    filter_backends = [filters.OrderingFilter]
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
     pagination_class = SetPagination
 
 
@@ -101,7 +101,7 @@ class SingleBrandView(generics.RetrieveUpdateDestroyAPIView):
 class SideMenuView(generics.ListCreateAPIView):
     queryset = SideMenu.objects.all()
     serializer_class = SideMenuSerializer
-    filter_backends = [filters.OrderingFilter]
+    filter_backends = [filters.SearchFilter, filters.OrderingFilter]
     pagination_class = SetPagination
 
 
