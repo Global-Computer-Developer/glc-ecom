@@ -158,7 +158,6 @@ class Reviews(models.Model):
 
 # slider
 class Slider(models.Model):
-    # id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     slider_url = models.CharField(max_length=255, default='')
     mini_text = models.CharField(max_length=255, null=True, default='')
     mid_text = models.CharField(max_length=255, null=True, default='')
@@ -245,3 +244,4 @@ class OrderItem(models.Model):
 # newsteller
 class Newsteller(models.Model):
     email = models.EmailField(unique=True, max_length=254)
+

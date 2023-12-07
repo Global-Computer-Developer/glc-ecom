@@ -3,6 +3,7 @@ from .models import Newsteller, SideMenu, SubSideMenu, Category, Brand, Product,
 from django.db.models import Avg, Count
 from global_computer import settings
 from django.contrib.auth import get_user_model
+from django.contrib.auth.models import Group
 
 
 User = get_user_model()
@@ -330,6 +331,8 @@ class NewstellerSerializer(serializers.ModelSerializer):
 
 # user profile
 class UserProfileSerializer(serializers.ModelSerializer):
+    groups = serializers.StringRelatedField(read_only = True, many= True)
     class Meta:
         model = User
-        fields = ['id', 'username', 'email', 'first_name', 'last_name', 'phone_number', 'street_address', 'district', 'division', 'image']
+        fields = ['id', 'username', 'email', 'first_name', 'last_name', 'phone_number', 'street_address', 'district', 'division', 'image', 'groups']
+
