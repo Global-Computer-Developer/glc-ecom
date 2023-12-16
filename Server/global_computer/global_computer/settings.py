@@ -55,7 +55,7 @@ else:
 
 
 
-ALLOWED_HOSTS = ['127.0.0.1','localhost', '134.209.97.214']
+ALLOWED_HOSTS = ['127.0.0.1','localhost', '134.209.97.214', 'api.globalcomputer.com.bd']
 
 
 # Application definition
