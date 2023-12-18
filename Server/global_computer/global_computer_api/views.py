@@ -4,7 +4,7 @@ from .models import Newsteller, Category, Banner, Product, Slider, Order, OrderI
 from django.contrib.auth import  get_user_model
 from rest_framework import generics
 from rest_framework.permissions import IsAdminUser, IsAuthenticated
-from .serializers import SubSideMenuSerializer, UserProfileSerializer, SingleOrderSerializer, NewstellerSerializer, ReviewSerializer, CategorySerializer, BrandSerializer, BannerSerializer, ProductSerializer, KeyFeatureSerializer, SliderSerializer, OrderItemSerializer, OrderSerializer, SpecificationSerializer, SpecTableSerializer, SingleProductSerializer, ReviewSerializer, SideMenuSerializer, SingleProductImageSerializer
+from .serializers import DisplayProductSerializer, SubSideMenuSerializer, UserProfileSerializer, SingleOrderSerializer, NewstellerSerializer, ReviewSerializer, CategorySerializer, BrandSerializer, BannerSerializer, ProductSerializer, KeyFeatureSerializer, SliderSerializer, OrderItemSerializer, OrderSerializer, SpecificationSerializer, SpecTableSerializer, SingleProductSerializer, ReviewSerializer, SideMenuSerializer, SingleProductImageSerializer
 from .permissions import IsManagerOnly
 from .paginations import SetPagination
 from django_filters.rest_framework import DjangoFilterBackend, Filter
@@ -171,6 +171,24 @@ class ProductView(generics.ListCreateAPIView):
         else:
             permission_classes = [IsAdminUser]
         return [permission() for permission in permission_classes]
+    
+
+class DisplayProductView(generics.ListCreateAPIView):
+    queryset = Product.objects.all()
+    serializer_class = DisplayProductSerializer
+    pagination_class = SetPagination
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
+    filterset_class = ProductFilter  # model__field
+    search_fields = ['title']
+    
+
+    def get_permissions(self):
+        if self.request.method == 'GET':
+            permission_classes = []
+        else:
+            permission_classes = [IsAdminUser]
+        return [permission() for permission in permission_classes]
+
 
    
 

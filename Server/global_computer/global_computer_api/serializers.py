@@ -185,6 +185,32 @@ class ProductSerializer(serializers.ModelSerializer):
 
 
 
+class DisplayProductSerializer(serializers.ModelSerializer):
+    key_features = KeyFeatureSerializer(many=True, read_only=True)
+    images = ProductImageSerializer(many=True, read_only=True)
+    average_stars = serializers.SerializerMethodField()
+    count_review = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Product
+        fields = ['id', 'title', 'slug', 'model_name', 'price',
+                  'prev_price', 'discount', 'is_stock', 'sold_stock', 'total_stock',
+                  'average_stars', 'count_review', 'images', 'key_features'
+                  ]
+    
+    def get_average_stars(self, obj):
+        average = Reviews.objects.filter(product_id=obj.id).aggregate(Avg('stars')).get('stars__avg')
+        if average == None:
+            return 0
+        return average
+
+    def get_count_review(self, obj):
+        count = Reviews.objects.filter(product_id=obj.id).aggregate(Count('user')).get('user__count')
+        if count == None:
+            return 0
+        return count
+
+
 
 class SingleProductSerializer(serializers.ModelSerializer):
     category = CategorySerializer(read_only=True)
